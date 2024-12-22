@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group 3 Members</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='profile_style.css') }}">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <a href="/">Portfolio</a>
+        </div>
+        <nav>
+            <a href="/profile" class="active">Profile</a>
+            <a href="/#portfolio">Works</a>
+            <a href="/contact_us">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Group Members Section -->
+    <section class="members-section">
+        <h1 class="heading">Group 3 Members</h1>
+        <div class="members-container">
+            <!-- Row 1: 4 Members -->
+            <div class="row">
+                <div class="member" onclick="showDetails('Ronald Jr.', 'Leader', 'June 15, 2000', 24, 'Lead by example.')">
+                    <img src="{{ url_for('static', filename='nald.jpg') }}" alt="Ronald" class="circle-image">
+                    <p class="member-name"><strong>Leader:</strong><br>De Villa, Ronald Jr.</p>
+                </div>
+                <div class="member" onclick="showDetails('Andrew Dominic', '', 'March 8, 2001', 23, 'Dream big.')">
+                    <img src="{{ url_for('static', filename='drew.jpg') }}" alt="Andrew" class="circle-image">
+                    <p class="member-name">Bonifacio, Andrew Dominic</p>
+                </div>
+                <div class="member" onclick="showDetails('Jefferson', '', 'July 20, 2000', 24, 'Never give up.')">
+                    <img src="{{ url_for('static', filename='arbis.jpg') }}" alt="Jefferson" class="circle-image">
+                    <p class="member-name">Arbis, Jefferson</p>
+                </div>
+                <div class="member" onclick="showDetails('Jericho', '', 'April 12, 2000', 24, 'Stay focused.')">
+                    <img src="{{ url_for('static', filename='jeko.jpg') }}" alt="Jericho" class="circle-image">
+                    <p class="member-name">Villanueva, Jericho</p>
+                </div>
+            </div>
+            <!-- Row 2: 3 Members -->
+            <div class="row second-row">
+                <div class="member" onclick="showDetails('Arjun N.', '', 'February 5, 2001', 23, 'Explore more.')">
+                    <img src="{{ url_for('static', filename='anj.png') }}" alt="Arjun" class="circle-image">
+                    <p class="member-name">Jalotjot, Arjun N</p>
+                </div>
+                <div class="member" onclick="showDetails('John Michael Luis', '', 'November 11, 2000', 24, 'Strive for excellence.')">
+                    <img src="{{ url_for('static', filename='luis.png') }}" alt="John" class="circle-image">
+                    <p class="member-name">Velasco, John Michael Luis</p>
+                </div>
+                <div class="member" onclick="showDetails('Yasser Trevor', '', 'September 22, 2000', 24, 'Think big, act bigger.')">
+                    <img src="{{ url_for('static', filename='yas.png') }}" alt="Yasser" class="circle-image">
+                    <p class="member-name">Esguerra, Yasser Trevor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Container -->
+    <div id="member-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modal-name"></h2>
+            <p><strong>Role:</strong> <span id="modal-role"></span></p>
+            <p><strong>Birthday:</strong> <span id="modal-birthday"></span></p>
+            <p><strong>Age:</strong> <span id="modal-age"></span></p>
+            <p><strong>Motto:</strong> <span id="modal-motto"></span></p>
+        </div>
+    </div>
+
+    <!-- Link External JavaScript -->
+    <script src="{{ url_for('static', filename='profile.js') }}"></script>
+</body>
+</html>

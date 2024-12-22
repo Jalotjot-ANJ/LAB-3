@@ -1,0 +1,212 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: rgb(38,58,61);
+    background: linear-gradient(90deg, rgba(38,58,61,1) 20%, rgba(136,189,188,1) 100%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #112d32; /* Semi-transparent background */
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensures the navbar stays on top */
+}
+
+header .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+header nav {
+    display: flex;
+    gap: 2.5rem;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+}
+
+header nav a:hover,
+header nav a.active {
+    color: #ffffff;
+}
+
+/* Members Section */
+.members-section {
+    margin-top: 5rem; /* Account for fixed header */
+    text-align: center;
+    padding: 3rem 1rem;
+    overflow-y: auto; /* Allow scrolling if needed */
+    max-width: 1200px;
+    margin: 5rem auto 0; /* Center horizontally */
+}
+
+.heading {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: white;
+    font-weight: 700;
+}
+
+/* Members Layout */
+.members-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem; /* Horizontal spacing */
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Individual Member Style */
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1); /* Light overlay effect */
+    border-radius: 10px;
+    padding: 1rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.member:hover {
+    transform: translateY(-5px); /* Lift effect */
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.circle-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #00acc1;
+    object-fit: cover;
+    margin-bottom: 0.8rem;
+}
+
+.member-name {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Slightly darker background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Ensure it appears above all other content */
+}
+
+.modal-content {
+    background: #222f3e;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    color: #fff;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.4s ease;
+    position: relative;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #00acc1;
+}
+
+.modal-header h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: #00acc1;
+    font-weight: 700;
+}
+
+.modal-body p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.modal-footer button {
+    background: #00acc1;
+    border: none;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.modal-footer button:hover {
+    background: #007e8b;
+}

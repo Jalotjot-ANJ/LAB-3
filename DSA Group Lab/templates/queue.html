@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/queue_style.css">
+    <title>Queue Implementation</title>
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo">Portfolio</a>
+        <nav class="navbar">
+            <a href="/profile">Profile</a>
+            <div class="dropdown">
+                <a class="dropbtn" href="#">Works <i class="fa fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="/linkedlist">LinkedList</a>
+                    <a href="/stack">Stack</a>
+                    <a href="/queue" class="active">Queue</a> <!-- Current page -->
+                </div>
+            </div>
+            <a href="/contact_us">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Queue Implementation</h1>
+        <p>This is the Queue page. Add your queue functionality here.</p>
+
+        <div class="queue-container">
+            <div class="input-section">
+                <input id="enqueue-input" type="text" placeholder="Enter value to enqueue">
+                <button onclick="enqueue()">Enqueue</button>
+            </div>
+            <div class="input-section">
+                <input id="dequeue-input" type="text" placeholder="Enter value to dequeue">
+                <button onclick="dequeue()">Dequeue</button>
+            </div>
+        </div>
+
+        <h2>Queue Output</h2>
+        <div class="output" id="output">The queue is empty!</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Queue Manager. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let queue = []; // Initialize an empty queue
+
+        // Function to enqueue an item
+        function enqueue() {
+            const enqueueInput = document.getElementById("enqueue-input").value.trim();
+            if (enqueueInput) {
+                queue.push(enqueueInput); // Add value to the queue
+                updateOutput();
+                document.getElementById("enqueue-input").value = ""; // Clear the input
+            } else {
+                alert("Please enter a value to enqueue.");
+            }
+        }
+
+        // Function to dequeue a specific item
+        function dequeue() {
+            const dequeueInput = document.getElementById("dequeue-input").value.trim();
+            if (dequeueInput) {
+                const index = queue.indexOf(dequeueInput);
+                if (index !== -1) {
+                    queue.splice(index, 1); // Remove the specified value from the queue
+                    alert(`Dequeued: ${dequeueInput}`);
+                    updateOutput();
+                } else {
+                    alert(`The value "${dequeueInput}" is not in the queue.`);
+                }
+                document.getElementById("dequeue-input").value = ""; // Clear the input
+            } else {
+                alert("Please enter a value to dequeue.");
+            }
+        }
+
+        // Function to update the output display
+        function updateOutput() {
+            const output = document.getElementById("output");
+            if (queue.length > 0) {
+                output.textContent = "Queue: " + queue.join(" → ");
+            } else {
+                output.textContent = "The queue is empty!";
+            }
+        }
+    </script>
+</body>
+</html>
